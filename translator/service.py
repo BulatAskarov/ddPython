@@ -8,5 +8,3 @@ def get_translation(word, dictionary):
 
 def prepare_word(word):
     return word.lower().strip()
-
-
