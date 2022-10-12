@@ -26,6 +26,7 @@ def get_parameters():
     direction = int(direction)
     return word, direction
 
+
 def get_translation(word, dictionary):
     if word in dictionary:
         translation = dictionary[word]
@@ -40,18 +41,37 @@ def print_translation(word, translation):
     else:
         print(f"Нет перевода для слова {word}")
 
+
 def prepare_word(word):
     return word.lower().strip()
 
-while True:
-    word, direction = get_parameters()
 
-    word = prepare_word(word)
+def get_word_translation(*args, **kwargs):
+    print(args)
+    print(kwargs)
+    local_dict = dict(**DICT, **kwargs)
+    lst = [1, 2, 3]
+    test_lst = [*args, *lst]
+    print(test_lst)
+    results = []
+    for arg in args:
+        results.append(get_translation(arg, local_dict))
+    return results
 
-    if direction == 1:
-        translation = get_translation(word, DICT)
-    else:
-        translation = get_translation(word, REVERSED_DICT)
-    print_translation(word, translation)
+
+print(get_word_translation(
+    'son', 'mother', 'clock', clock='часы', key='ключ'
+))
 
 
+
+# while True:
+#     word, direction = get_parameters()
+#
+#     word = prepare_word(word)
+#
+#     if direction == 1:
+#         translation = get_translation(word, DICT)
+#     else:
+#         translation = get_translation(word, REVERSED_DICT)
+#     print_translation(word, translation)
