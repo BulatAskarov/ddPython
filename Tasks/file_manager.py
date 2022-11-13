@@ -46,7 +46,7 @@ while (True):
         pwd()
     if "cd" in command:
         lst = command.strip(" ")
-        cd(command[1])
+        cd(lst[1])
     if "touch" in command:
         lst = command.strip(" ")
         touch(command[1])

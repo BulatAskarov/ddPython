@@ -9,7 +9,8 @@ def io_find_max_decorator(func):
 
 
 @io_find_max_decorator
-def find_max(lst):
+def find_max(*args):
+    lst = args[0]
     m = 1 - sys.maxsize
     for n in lst:
         if n > m:
